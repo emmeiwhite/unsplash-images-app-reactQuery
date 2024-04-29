@@ -1,7 +1,16 @@
 import { useGlobalContext } from "./context";
+import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 
 export default function ThemeToggle() {
-  const greeting = useGlobalContext();
-  console.log(greeting);
-  return <div>ThemeToggle</div>;
+  const { isDarkTheme, toggleDarkTheme } = useGlobalContext();
+  console.log(isDarkTheme);
+  return (
+    <div>
+      {isDarkTheme ? (
+        <BsFillMoonFill onClick={toggleDarkTheme()} />
+      ) : (
+        <BsFillSunFill />
+      )}
+    </div>
+  );
 }

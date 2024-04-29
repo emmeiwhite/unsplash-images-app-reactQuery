@@ -1,17 +1,26 @@
-import { createContext, useContext } from "react";
-import Gallery from "./Gallery";
+import { createContext, useContext, useState } from "react";
 
 // This is our context
 export const GalleryContext = createContext();
 
 export const AppProvider = ({ children }) => {
-  const greeting = "Hello World!";
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
 
+  const toggleDarkTheme = () => {
+    const newDarkTheme = !isDarkTheme;
+    setIsDarkTheme(newDarkTheme);
+  };
+
+  const appData = {
+    isDarkTheme,
+    toggleDarkTheme,
+  };
   return (
-    <GalleryContext.Provider value={greeting}>
+    <GalleryContext.Provider value={appData}>
       {children}
     </GalleryContext.Provider>
   );
 };
 
+// Custom useGlobalContext to save some lines of code on each page!
 export const useGlobalContext = () => useContext(GalleryContext);
