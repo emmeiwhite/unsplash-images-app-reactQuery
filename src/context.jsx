@@ -1,4 +1,17 @@
-import { createContext } from "react";
+import { createContext, useContext } from "react";
+import Gallery from "./Gallery";
 
 // This is our context
-const imagesContext = createContext();
+export const GalleryContext = createContext();
+
+const AppProvider = ({ children }) => {
+  const greeting = "Hello World!";
+
+  return (
+    <GalleryContext.Provider value={greeting}>
+      {children}
+    </GalleryContext.Provider>
+  );
+};
+
+export const useGlobalContext = () => useContext(GalleryContext);
