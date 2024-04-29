@@ -3,14 +3,19 @@ import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 
 export default function ThemeToggle() {
   const { isDarkTheme, toggleDarkTheme } = useGlobalContext();
-  console.log(isDarkTheme);
+
   return (
-    <div>
-      {isDarkTheme ? (
-        <BsFillMoonFill onClick={toggleDarkTheme} />
-      ) : (
-        <BsFillSunFill onClick={toggleDarkTheme} />
-      )}
-    </div>
+    <section className="toggle-container">
+      <button
+        className="dark-toggle"
+        onClick={toggleDarkTheme}
+      >
+        {isDarkTheme ? (
+          <BsFillMoonFill className="toggle-icon" />
+        ) : (
+          <BsFillSunFill className="toggle-icon" />
+        )}
+      </button>
+    </section>
   );
 }
