@@ -64,8 +64,8 @@ html {
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 400;
   line-height: 1;
 }
@@ -367,4 +367,10 @@ Gallery
   .image-container {
     grid-template-columns: 1fr 1fr 1fr;
   }
+}
+
+/* --- Play Ground To Explore! --- */
+
+.apply-dark {
+  background-color: #0f172a;
 }

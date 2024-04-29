@@ -7,9 +7,9 @@ export default function ThemeToggle() {
   return (
     <div>
       {isDarkTheme ? (
-        <BsFillMoonFill onClick={toggleDarkTheme()} />
+        <BsFillMoonFill onClick={toggleDarkTheme} />
       ) : (
-        <BsFillSunFill />
+        <BsFillSunFill onClick={toggleDarkTheme} />
       )}
     </div>
   );
