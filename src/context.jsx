@@ -4,7 +4,7 @@ import Gallery from "./Gallery";
 // This is our context
 export const GalleryContext = createContext();
 
-const AppProvider = ({ children }) => {
+export const AppProvider = ({ children }) => {
   const greeting = "Hello World!";
 
   return (
