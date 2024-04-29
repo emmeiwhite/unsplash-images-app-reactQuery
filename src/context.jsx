@@ -7,8 +7,11 @@ export const AppProvider = ({ children }) => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   const toggleDarkTheme = () => {
-    const newDarkTheme = !isDarkTheme;
-    setIsDarkTheme(newDarkTheme);
+    // const newDarkTheme = !isDarkTheme;
+    setIsDarkTheme((prevValue) => {
+      document.body.classList.toggle("dark-theme", !isDarkTheme);
+      return !prevValue;
+    });
   };
 
   const appData = {

@@ -11,9 +11,9 @@ export default function ThemeToggle() {
         onClick={toggleDarkTheme}
       >
         {isDarkTheme ? (
-          <BsFillMoonFill className="toggle-icon" />
+          <BsFillSunFill className="toggle-icon icon-white" />
         ) : (
-          <BsFillSunFill className="toggle-icon" />
+          <BsFillMoonFill className="toggle-icon icon-dark" />
         )}
       </button>
     </section>
