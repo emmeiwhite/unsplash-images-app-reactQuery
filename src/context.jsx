@@ -8,8 +8,13 @@ const getInitialDarkMode = () => {
   const prefersDarkMode = window.matchMedia(
     "(prefers-color-scheme: dark)"
   ).matches;
-  console.log(prefersDarkMode);
-  return prefersDarkMode;
+  const storedDarkMode = localStorage.getItem("darkTheme");
+
+  if (storedDarkMode === null) {
+    return prefersDarkMode;
+  }
+
+  return storedDarkMode === "true";
 };
 
 export const AppProvider = ({ children }) => {
@@ -22,6 +27,8 @@ export const AppProvider = ({ children }) => {
       document.body.classList.toggle("dark-theme", !isDarkTheme);
       return !prevValue;
     });
+
+    localStorage.setItem("darkTheme", !isDarkTheme);
   };
 
   // We check the user preference for dark-theme and set the theme accordingly
