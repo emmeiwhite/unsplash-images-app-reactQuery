@@ -1,8 +1,11 @@
-export default function SearchForm() {
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
+import { useGlobalContext } from "./context";
 
-    console.log(e.target.elements.search);
+export default function SearchForm() {
+  const { searchTerm, setSearchTerm } = useGlobalContext();
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    if (!searchTerm) return;
+    setSearchTerm(searchTerm);
   };
   return (
     <section>

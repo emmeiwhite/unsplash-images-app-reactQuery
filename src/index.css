@@ -375,16 +375,22 @@ Gallery
 }
 
 .image-container .img {
-  height: 10rem;
+  height: 14rem;
+  @media (min-width: 768px) {
+    height: 15rem;
+  }
+  @media (min-width: 992px) {
+    height: 16rem;
+  }
 }
 
 @media (min-width: 768px) {
   .image-container {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 @media (min-width: 992px) {
   .image-container {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }

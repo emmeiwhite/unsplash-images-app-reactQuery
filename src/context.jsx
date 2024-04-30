@@ -5,6 +5,7 @@ const GalleryContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("cat");
 
   /** --- 2. Application Business Logic --- */
   const toggleDarkTheme = () => {
@@ -17,8 +18,11 @@ export const AppProvider = ({ children }) => {
   /** 1. Application State */
   const appData = {
     isDarkTheme,
+    searchTerm,
     toggleDarkTheme,
+    setSearchTerm,
   };
+
   return (
     <GalleryContext.Provider value={appData}>
       {children}
