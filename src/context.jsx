@@ -1,19 +1,20 @@
 import { createContext, useContext, useState } from "react";
 
 // This is our context
-export const GalleryContext = createContext();
+const GalleryContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
+  /** --- 2. Application Business Logic --- */
   const toggleDarkTheme = () => {
-    // const newDarkTheme = !isDarkTheme;
     setIsDarkTheme((prevValue) => {
       document.body.classList.toggle("dark-theme", !isDarkTheme);
       return !prevValue;
     });
   };
 
+  /** 1. Application State */
   const appData = {
     isDarkTheme,
     toggleDarkTheme,

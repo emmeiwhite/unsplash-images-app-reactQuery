@@ -4,7 +4,6 @@ import ThemeToggle from "./ThemeToggle";
 import { useGlobalContext } from "./context";
 
 const App = () => {
-  const { isDarkTheme } = useGlobalContext();
   return (
     <main>
       <ThemeToggle />
