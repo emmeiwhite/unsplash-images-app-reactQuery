@@ -1,17 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
 import photosFetch from "./utils";
 import { useGlobalContext } from "./context";
-import { AUTH_KEY } from ".env";
+
+const key = import.meta.env.VITE_AUTH_KEY;
 
 export default function Gallery() {
   const { searchTerm } = useGlobalContext();
 
-  return <div>Testing</div>;
   const result = useQuery({
-    queryKey: ["images"],
+    queryKey: ["images", searchTerm],
     queryFn: async () => {
       const response = await photosFetch.get(
-        `?client_id=${AUTH_KEY}&query=${searchTerm}`
+        `?client_id=${key}&query=${searchTerm}`
       );
       return response.data;
     },
