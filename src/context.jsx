@@ -1,10 +1,19 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 // This is our context
 const GalleryContext = createContext();
 
+// Checking the user preference for dark theme and handling initial theme with useEffect
+const getInitialDarkMode = () => {
+  const prefersDarkMode = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
+  console.log(prefersDarkMode);
+  return prefersDarkMode;
+};
+
 export const AppProvider = ({ children }) => {
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(getInitialDarkMode());
   const [searchTerm, setSearchTerm] = useState("cat");
 
   /** --- 2. Application Business Logic --- */
@@ -14,6 +23,11 @@ export const AppProvider = ({ children }) => {
       return !prevValue;
     });
   };
+
+  // We check the user preference for dark-theme and set the theme accordingly
+  useEffect(() => {
+    document.body.classList.toggle("dark-theme", isDarkTheme);
+  }, []);
 
   /** 1. Application State */
   const appData = {
