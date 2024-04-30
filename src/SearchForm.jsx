@@ -1,12 +1,14 @@
 import { useGlobalContext } from "./context";
 
 export default function SearchForm() {
-  const { searchTerm, setSearchTerm } = useGlobalContext();
+  const { setSearchTerm } = useGlobalContext();
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    if (!searchTerm) return;
-    setSearchTerm(searchTerm);
+    const searchValue = e.target.elements.search.value;
+    if (!searchValue) return;
+    setSearchTerm(searchValue);
   };
+
   return (
     <section>
       <h1 className="title">Unsplash Images</h1>
